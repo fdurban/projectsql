@@ -32,11 +32,10 @@ export async function getNote(id) {
 export async function createNote(title, contents) {
   const [result] = await pool.query(
     `
-    INSERT INTO notes (title, contents)
-    VALUES (?, ?)
-    `,
+  INSERT INTO notes (title, contents)
+  VALUES (?, ?)
+  `,
     [title, contents]
   );
-  const id = result.insertId;
-  return getNote(id);
+  return result;
 }

@@ -37,7 +37,6 @@ export async function createNote(title, contents) {
     `,
     [title, contents]
   );
-
   const id = result.insertId;
   return getNote(id);
 }
